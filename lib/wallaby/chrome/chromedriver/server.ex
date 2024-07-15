@@ -217,6 +217,7 @@ defmodule Wallaby.Chrome.Chromedriver.Server do
 
   @spec build_base_url(port_number) :: String.t()
   defp build_base_url(port_number) do
-    "http://localhost:#{port_number}/"
+    host = Application.get_config(:wallaby, :chromedriver, :path) || "http://localhost"
+    "#{host}:#{port_number}/"
   end
 end
