@@ -17,7 +17,8 @@ defmodule Wallaby.Feature do
 
   defmacro __using__(_) do
     quote do
-      ExUnit.Case.register_attribute(__MODULE__, :sessions)
+      # Turned Off
+      #ExUnit.Case.register_attribute(__MODULE__, :sessions)
 
       use Wallaby.DSL
       import Wallaby.Feature
@@ -131,7 +132,7 @@ defmodule Wallaby.Feature do
             contents: contents,
             message: message
           ] do
-      name = ExUnit.Case.register_test(mod, file, line, :feature, message, [:feature])
+      name = nil #TURNED OFF ExUnit.Case.register_test(mod, file, line, :feature, message, [:feature])
 
       def unquote(name)(unquote(context)), do: unquote(contents)
     end
